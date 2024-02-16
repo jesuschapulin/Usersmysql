@@ -60,6 +60,9 @@
                                style="display: none;">
 <!--                        <input class="btn btn-default" type="submit" name="accion" value="cancelarLogin">-->
                       </form>
+                      <span class="btn btn-primary btn-block mb-4" id="btn-jelastic">
+                          Test jelastic service
+                        </span>  
                     </div>
                   </div>
                 </div>

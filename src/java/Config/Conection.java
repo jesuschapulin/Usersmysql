@@ -4,16 +4,37 @@ package Config;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Conection {
     Connection con;
     public Conection(){
+        String base="node170629-usuarioscrudjpa.jelastic.saveincloud.net/empresa";
+        base+="?useOldAliasMetadataBehavior=true&useUnicode=true&characterEncoding=UTF-8"
+             +"&useSSL=false&serverTimezone=UTC";
+        String usuario="root";
+        String password="HGXxxa66757";
+        
+//        String base="localhost/empresa?serverTimezone=UTC";
+//        base+="?useOldAliasMetadataBehavior=true&useUnicode=true&characterEncoding=UTF-8"
+//             +"&useSSL=false&serverTimezone=UTC";
+//        String usuario="root";
+//        String password="";
+        
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa","root","");
+            con=DriverManager.getConnection("jdbc:mysql://"+base,usuario,password);
+        }catch (SQLException e) {
+            System.out.println("Connection Failed! Check output console:::::");
+            e.printStackTrace();
+            return;
+        } catch (ClassNotFoundException en) {
+            System.out.println("Drive Class Not Found.:::::");
+            en.printStackTrace();
+            return;
         }catch(Exception ex){
-            System.out.println("Fallo la conexion a la base de datos");
+            System.out.println("Fallo la conexion a la base de datos::::::");
             ex.printStackTrace();
         }
     }

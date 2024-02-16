@@ -320,6 +320,18 @@ $(document).ready(function () {
               });
         }
     }
+    ///prueba de jelastic
+	$("#btn-jelastic").click(function(event)
+	{
+            console.log("testing service on jelastic:::::::::");
+            var dom="https://node150639-env-9117163.fr-1.paas.massivegrid.net";
+            var local="http://127.0.0.1:8013/demo";
+            $.get(dom+"/service/hello",function(res){
+              console.log("respuesta del test:::::: "+res);
+            //res=JSON.parse(res);
+        });
+
+	});
     console.log("cargando jquery::::::: "+accion);
     console.log("cargando pagina::::::: "+page);
 });
